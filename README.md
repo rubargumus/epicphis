@@ -1,0 +1,2 @@
+# epicphis
+PHİSİNG TO EPİC GAMES ACCOUNTS
